@@ -139,7 +139,7 @@ namespace Project_FinchControl
                 // get user menu choice
                 //
                 Console.WriteLine("\ta) Light and Sound");
-                Console.WriteLine("\tb) ");
+                Console.WriteLine("\tb) Movement");
                 Console.WriteLine("\tc) ");
                 Console.WriteLine("\td) ");
                 Console.WriteLine("\tq) Main Menu");
@@ -156,7 +156,7 @@ namespace Project_FinchControl
                         break;
 
                     case "b":
-
+                        DisplayMovement(myFinch);
                         break;
 
                     case "c":
@@ -202,7 +202,18 @@ namespace Project_FinchControl
                 finchRobot.noteOn(lightSoundLevel * 100);
             }
 
-            DisplayMenuPrompt("Talent Show Menu");
+            DisplayMenuPrompt("Talent Show");
+        }
+
+        static void DisplayMovement(Finch finchRobot)
+        {
+            DisplayScreenHeader("Movement");
+
+            finchRobot.setMotors(255, 255);
+            finchRobot.wait(1000);
+            finchRobot.setMotors(0, 0);
+
+            DisplayMenuPrompt("Talent Show");
         }
 
         #endregion
